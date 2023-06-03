@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 
-
 const Joke = (props) => {
   const { userAvatar, userName, text, likes, dislikes } = props;
   const [upLikes, setUpLikes] = useState(likes);
@@ -16,16 +15,29 @@ const Joke = (props) => {
   };
   return (
     <div className="container">
-      <header></header>
+      <div className="profileUser">
+        <img
+          src={userAvatar}
+          alt="avatar-user"
+          className="joke__user user-avatar"
+        />
+        <h3 className="user-name">{userName}</h3>
+      </div>
+      <div className="textLikes">
+        <p className="joke__text">{text}</p>
 
-      <img src={userAvatar} alt="avatar-user" className="joke__user user-avatar" />
-      <h3 className="user-name">{userName}</h3>
-      <p className="joke__text">{text}</p>
-      <div className="joke__likes">
-        <button onClick={handleUpClick} className="btn-like btn-like--up"></button>
-        <span className="likes-count likes-count--up">{upLikes}</span>
-        <button onClick={handleDownClick} className="btn-like btn-like--down"></button>
-        <span className="likes-count likes-count--down">{downLikes}</span>
+        <div className="joke__likes">
+          <button
+            onClick={handleUpClick}
+            className="btn-like btn-like--up"
+          ></button>
+          <span className="likes-count likes-count--up">{upLikes}</span>
+          <button
+            onClick={handleDownClick}
+            className="btn-like btn-like--down"
+          ></button>
+          <span className="likes-count likes-count--down">{downLikes}</span>
+        </div>
       </div>
     </div>
   );
